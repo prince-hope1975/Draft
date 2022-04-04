@@ -17,6 +17,7 @@ export const AppProvider = (props: any) => {
   const value = useValue();
 
   return (
+    // @ts-ignore
     <AppContext.Provider value={value}> {props.children}</AppContext.Provider>
   );
 };
