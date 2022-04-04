@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import clsx from "clsx";
 import {  Typography,Toolbar,AppBar,Drawer,Button} from "@mui/material/";
 import { AiOutlineInbox as InboxIcon,AiOutlineMail as MailIcon } from "react-icons/ai";
@@ -27,14 +27,19 @@ export default function PermanantDrawer() {
   const {setMedia, media} = useContextObject()
   let anchor:anchor
   let drawerWidth:number|string = 240 ;
-  if(!matches){
-    drawerWidth= "100%";
-    setMedia({...media, width:drawerWidth})
-    anchor="bottom"
+  if (!matches) {
+    drawerWidth = "100%";
+    anchor = "bottom";
   }
-else{
-  setMedia({...media, width: 0})
-}
+useEffect(()=>{
+   if(matches){
+     setMedia({isTrue:matches,width:drawerWidth})
+   }
+   else{
+     setMedia({isTrue:matches, width: 0 });
+
+   }
+},[matches])
 
   return (
     <div className="">
