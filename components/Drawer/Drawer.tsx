@@ -79,7 +79,7 @@ useEffect(()=>{
       >
         {matches && <Divider />}
         <List
-          className="bg-[hsl(0,0%,18%)] h-10 overflow-hidden border-0"
+          className="bg-[hsl(0,0%,18%)] h-full border-0"
           sx={{
             display: "flex",
             gap: 1,
@@ -100,7 +100,7 @@ useEffect(()=>{
               >
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
-              <ListItemText primary={text} className="text-gray-200" />
+              {matches && <ListItemText primary={text} className="text-gray-200" />}
             </ListItem>
           ))}
         </List>
